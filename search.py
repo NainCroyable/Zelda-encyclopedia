@@ -1,4 +1,5 @@
 import requests
+import sys
 from pystyle import Center, Box, Colorate, Colors
 
 def search(searched):
@@ -20,6 +21,7 @@ def search(searched):
         url_image = data["image"]
     else:
         print(Colorate.Horizontal(Colors.yellow_to_red, "Not find.", 1))
+        sys.exit()
 
     for y in range(len(locations)):
         locations_text += locations[y]
