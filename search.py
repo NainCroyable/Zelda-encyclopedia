@@ -17,6 +17,11 @@ def search(searched):
 
         if category == "creatures" or category == "monster":
 
+            try: 
+                f = data["common_locations"] 
+            except KeyError: 
+                data["common_locations"] = None
+
             if data["common_locations"] != None:
                 locations = list(data["common_locations"])
             else:
@@ -143,7 +148,8 @@ def search2(searched):
             print(Colorate.Horizontal(Colors.yellow_to_red, f"   {number_result}. {treasure[u]['name']}", 1))
             number_result += 1
 
-    searched = int(Write.Input("\n \nWhat do you want to see ? (1, 2, 3, ...) -> ", Colors.red_to_yellow, interval=0.025, hide_cursor=False))
+    if len(list_result) != 0:
+        searched = int(Write.Input("\n \nWhat do you want to see ? (1, 2, 3, ...) -> ", Colors.red_to_yellow, interval=0.025, hide_cursor=False))
 
     return search(list_result[searched])
 
