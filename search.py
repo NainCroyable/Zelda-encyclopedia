@@ -23,6 +23,11 @@ def search(searched):
                 locations = ["None"]
             locations_text = ""
 
+            try: 
+                f = data["drops"] 
+            except KeyError: 
+                data["drops"] = None
+
             if data["drops"] != None:
                 drops = list(data["drops"])
             else:
@@ -86,9 +91,10 @@ def search(searched):
         
 
         print(Colorate.Horizontal(Colors.yellow_to_red, Box.DoubleCube(text), 1))
+        return url_image
 
     else:
-        search2(searched)
+        return search2(searched)
 
 def search2(searched):
     all = requests.get("https://botw-compendium.herokuapp.com/api/v2/all").json()
@@ -139,6 +145,6 @@ def search2(searched):
 
     searched = int(Write.Input("\n \nWhat do you want to see ? (1, 2, 3, ...) -> ", Colors.red_to_yellow, interval=0.025, hide_cursor=False))
 
-    search(list_result[searched])
+    return search(list_result[searched])
 
 
