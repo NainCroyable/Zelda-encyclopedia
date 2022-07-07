@@ -11,7 +11,11 @@ searched = Write.Input("What do you want to search ? -> ", Colors.red_to_yellow,
 
 url_image = search(searched)
 
-open = Write.Input("Open the image in your webbrowser ? (yes/no) -> ", Colors.red_to_yellow, interval=0.025, hide_cursor=False)
+if url_image != None:
+    open = Write.Input("Open the image in your webbrowser ? (yes/no) -> ", Colors.red_to_yellow, interval=0.025, hide_cursor=False)
+else:
+    open = ""
+    print(Colorate.Horizontal(Colors.yellow_to_red, "There is no result.\n\n", 1))
 
 if open == "yes":
     import webbrowser

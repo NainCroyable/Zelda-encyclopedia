@@ -150,7 +150,4 @@ def search2(searched):
 
     if len(list_result) != 0:
         searched = int(Write.Input("\n \nWhat do you want to see ? (1, 2, 3, ...) -> ", Colors.red_to_yellow, interval=0.025, hide_cursor=False))
-
-    return search(list_result[searched])
-
-
+        return search(list_result[searched])
