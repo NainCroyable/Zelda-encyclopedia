@@ -15,11 +15,20 @@ def search(searched):
         name = searched
         category = data["category"]
 
-        if category == "creatures" or category == "monster": 
-            locations = list(data["common_locations"])
+        if category == "creatures" or category == "monster":
+
+            if data["common_locations"] != None:
+                locations = list(data["common_locations"])
+            else:
+                locations = ["None"]
             locations_text = ""
-            drops = list(data["drops"])
+
+            if data["drops"] != None:
+                drops = list(data["drops"])
+            else:
+                drops = ["None"]
             drops_text = ""
+
             url_image = data["image"]
 
             for y in range(len(locations)):
@@ -30,7 +39,7 @@ def search(searched):
                 drops_text += drops[y]
                 drops_text += ", "
 
-            text = f"The {name.upper()} :\n\nCategory : {category} \nLocations : {locations_text}\nDrops : {drops_text}\nImage : {url_image}"
+            text = f"The {name.upper()} :\n\nCategory : {category}, \nLocations : {locations_text}\nDrops : {drops_text}\nImage : {url_image}"
         
         elif category == "equipment":
             locations = list(data["common_locations"])
