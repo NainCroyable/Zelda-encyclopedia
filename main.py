@@ -14,6 +14,5 @@ url_image = search(searched)
 open = Write.Input("Open the image in your webbrowser ? (yes/no) -> ", Colors.red_to_yellow, interval=0.025, hide_cursor=False)
 
 if open == "yes":
-    print("\n", url_image)
     import webbrowser
     webbrowser.open(url_image)
